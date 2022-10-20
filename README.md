@@ -4,8 +4,12 @@
     </a>
     <br />
     <a href="https://github.com/CICDToolbox/action-lint/actions/workflows/cicd-pipeline.yml">
-        <img src="https://img.shields.io/github/workflow/status/CICDToolbox/action-lint/CICD%20Pipeline/master?style=for-the-badge" alt="Github Build Status">
+        <img src="https://img.shields.io/github/workflow/status/CICDToolbox/action-lint/CICD%20Pipeline/master?style=for-the-badge&label=shared%20pipeline" alt="Github Build Status">
     </a>
+    <a href="https://github.com/CICDToolbox/action-lint/actions/workflows/custom-build-pipeline.yml">
+        <img src="https://img.shields.io/github/workflow/status/CICDToolbox/action-lint/Custom%20Build%20Pipeline/master?style=for-the-badge&label=custom%20pipeline" alt="Github Build Status">
+    </a>
+    <br />
     <a href="https://github.com/CICDToolbox/action-lint/releases/latest">
         <img src="https://img.shields.io/github/v/release/CICDToolbox/action-lint?color=blue&label=Latest%20Release&style=for-the-badge" alt="Release">
     </a>
