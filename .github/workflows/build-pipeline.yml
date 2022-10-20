@@ -11,10 +11,10 @@ on:
 
 jobs:
   notify:
-    name: Build pipeline
+    name: Should i runtest
     runs-on: ubuntu-latest
     outputs:
-      should_i_run: ${{ steps.set_should_i_run.should_i_run }}
+      should_i_run: ${{ steps.set_should_i_run.outputs.should_i_run }}
     steps:
       - name: Set should I run
         id: set_should_i_run
@@ -27,8 +27,6 @@ jobs:
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v3
-      - name: turn off
-        run: export GIT_PR_SHA="${{ github.sha }}"
 
   slack-workflow-status:
     if: always()
