@@ -10,10 +10,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  should-i-run:
+  notify:
     name: Build pipeline
     runs-on: ubuntu-latest
-    outputs: ${{ steps.set_should_i_run.set_should_i_run }}
+    outputs:
+      notify: ${{ steps.set_should_i_run.should_i_run }}
     steps:
       - name: Set should I run
         id: set_should_i_run
@@ -33,12 +34,12 @@ jobs:
     if: always()
     name: Slack Post Workflow Notification
     needs:
-      - should_i_run
+      - notify
       - build
     runs-on: ubuntu-latest
     steps:
       - name: Slack Workflow Notifications
-        if: ${{ needs.should_i_run.should_i_run == true && github.event_name == 'push' }}
+        if: ${{ needs.notify.should_i_run == true && github.event_name == 'push' }}
         uses: Gamesight/slack-workflow-status@v1.1.0
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
