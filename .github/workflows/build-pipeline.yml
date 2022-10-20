@@ -11,14 +11,14 @@ on:
 
 jobs:
   notify:
-    name: Should i runtest
+    name: Should i run
     runs-on: ubuntu-latest
     outputs:
       should_i_run: ${{ steps.set_should_i_run.outputs.should_i_run }}
     steps:
       - name: Set should I run
         id: set_should_i_run
-        run: echo "::set-output name=should_i_run::false"
+        run: echo "::set-output name=should_i_run::true"
 
   build:
     name: Build pipeline
