@@ -1,4 +1,4 @@
-name: Custom Build Pipeline
+name: CICD Pipeline (Shared)
 
 on:
   push:

@@ -3,11 +3,11 @@
         <img src="https://cdn.wolfsoftware.com/assets/images/github/organisations/cicdtoolbox/black-and-white-circle-256.png" alt="CICDToolbox logo" />
     </a>
     <br />
-    <a href="https://github.com/CICDToolbox/action-lint/actions/workflows/cicd-pipeline.yml">
-        <img src="https://img.shields.io/github/workflow/status/CICDToolbox/action-lint/CICD%20Pipeline/master?style=for-the-badge&label=shared%20pipeline" alt="Github Build Status">
+    <a href="https://github.com/CICDToolbox/action-lint/actions/workflows/cicd-pipeline-shared.yml">
+        <img src="https://img.shields.io/github/workflow/status/CICDToolbox/action-lint/CICD%20Pipeline%20(Shared)/master?style=for-the-badge&label=shared%20pipeline" alt="Github Build Status">
     </a>
-    <a href="https://github.com/CICDToolbox/action-lint/actions/workflows/custom-build-pipeline.yml">
-        <img src="https://img.shields.io/github/workflow/status/CICDToolbox/action-lint/Custom%20Build%20Pipeline/master?style=for-the-badge&label=custom%20pipeline" alt="Github Build Status">
+    <a href="https://github.com/CICDToolbox/action-lint/actions/workflows/cicd-pipeline-custom.yml">
+        <img src="https://img.shields.io/github/workflow/status/CICDToolbox/action-lint/CICD%20Pipeline%20(Custom)/master?style=for-the-badge&label=custom%20pipeline" alt="Github Build Status">
     </a>
     <br />
     <a href="https://github.com/CICDToolbox/action-lint/blob/master/.github/CODE_OF_CONDUCT.md">
@@ -39,7 +39,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout the code
+      - name: Checkout the repository
         uses: actions/checkout@v3
       - name: Setup Go 1.19
         uses: actions/setup-go@v3
@@ -70,7 +70,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout the code
+      - name: Checkout the repository
         uses: actions/checkout@v3
       - name: Setup Go 1.19
         uses: actions/setup-go@v3
