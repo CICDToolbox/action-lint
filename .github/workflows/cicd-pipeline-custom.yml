@@ -1,5 +1,12 @@
-name: CICD Pipeline (Custom)
+name: name: CICD Pipeline (Custom)
 
+#
+# This is a repository specific custom workflow - only the template is auto-generated
+#
+
+#
+# Start of Template (part 1)
+#
 on:
   push:
     branches:
@@ -10,37 +17,46 @@ on:
   workflow_dispatch:
 
 jobs:
-  notify:
-    name: Should i run
+  should-i-notify:
+    name: Should I notify?
     runs-on: ubuntu-latest
     outputs:
-      should_i_run: ${{ steps.set_should_i_run.outputs.should_i_run }}
+      should-i-notify: ${{ steps.set-should-i-notify.outputs.should-i-notify }}
     steps:
-      - name: Set should I run
-        id: set_should_i_run
-        run: echo "::set-output name=should_i_run::true"
+      - name: Set should I notify
+        id: set-should-i-notify
+        run: echo "::set-output name=should-i-notify::false"
 
   build:
     name: Build pipeline
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v3
+#
+# End of Template (part 1)
+#
+
+#
+# Start of Template (part 2)
+#
 
   slack-workflow-status:
     if: always()
     name: Slack Post Workflow Notification
     needs:
-      - notify
+      - should-i-notify
       - build
     runs-on: ubuntu-latest
     steps:
       - name: Slack Workflow Notifications
-        if: ${{ needs.notify.outputs.should_i_run == true && github.event_name == 'push' }}
+        if: ${{ needs.notify.outputs.should-i-notify == true && github.event_name == 'push' }}
         uses: Gamesight/slack-workflow-status@v1.1.0
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
           include_jobs: on-failure
           include_commit_message: true
+#
+# End of Template (part 2)
+#
