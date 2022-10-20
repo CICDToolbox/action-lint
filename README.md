@@ -22,10 +22,6 @@
     <a href="https://github.com/CICDToolbox/action-lint/issues">
         <img src="https://img.shields.io/badge/Get%20Support-blue?style=for-the-badge" />
     </a>
-    <br />
-    <a href="https://wolfsoftware.com/">
-        <img src="https://img.shields.io/badge/Created%20by%20Wolf%20Software-blue?style=for-the-badge" />
-    </a>
 </p>
 
 ## Overview
@@ -115,5 +111,6 @@ GitHub action files are identified using the following code:
 ```
 
 > There is not magic type for GitHub action files so file -b is of not use for identifying the files.
+
 
 <p align="right"><a href="https://wolfsoftware.com/"><img src="https://img.shields.io/badge/Created%20by%20Wolf%20Software-blue?style=for-the-badge" /></a></p>
