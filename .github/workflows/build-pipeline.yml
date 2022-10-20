@@ -14,7 +14,7 @@ jobs:
     name: Build pipeline
     runs-on: ubuntu-latest
     outputs:
-      notify: ${{ steps.set_should_i_run.should_i_run }}
+      should_i_run: ${{ steps.set_should_i_run.should_i_run }}
     steps:
       - name: Set should I run
         id: set_should_i_run
