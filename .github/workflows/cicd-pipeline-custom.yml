@@ -1,4 +1,4 @@
-name: name: CICD Pipeline (Custom)
+name: CICD Pipeline (Custom)
 
 #
 # This is a repository specific custom workflow - only the template is auto-generated
@@ -17,15 +17,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  should-i-notify:
-    name: Should I notify?
+  slack-notify:
+    name: Slack notify?
     runs-on: ubuntu-latest
     outputs:
-      should-i-notify: ${{ steps.set-should-i-notify.outputs.should-i-notify }}
+      notify: ${{ steps.slack-notify.outputs.notify }}
     steps:
-      - name: Set should I notify
-        id: set-should-i-notify
-        run: echo "::set-output name=should-i-notify::false"
+      - name: Set slack notify
+        id: slack-notify
+        run: echo "::set-output name=notify::false"
 
   build:
     name: Build pipeline
@@ -45,12 +45,12 @@ jobs:
     if: always()
     name: Slack Post Workflow Notification
     needs:
-      - should-i-notify
+      - slack-notify
       - build
     runs-on: ubuntu-latest
     steps:
       - name: Slack Workflow Notifications
-        if: ${{ needs.notify.outputs.should-i-notify == true && github.event_name == 'push' }}
+        if: ${{ needs.slack-notify.outputs.notify == true && github.event_name == 'push' }}
         uses: Gamesight/slack-workflow-status@v1.1.0
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
