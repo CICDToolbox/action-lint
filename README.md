@@ -10,13 +10,6 @@
         <img src="https://img.shields.io/github/workflow/status/CICDToolbox/action-lint/Custom%20Build%20Pipeline/master?style=for-the-badge&label=custom%20pipeline" alt="Github Build Status">
     </a>
     <br />
-    <a href="https://github.com/CICDToolbox/action-lint/releases/latest">
-        <img src="https://img.shields.io/github/v/release/CICDToolbox/action-lint?color=blue&label=Latest%20Release&style=for-the-badge" alt="Release">
-    </a>
-    <a href="https://github.com/CICDToolbox/action-lint/releases/latest">
-        <img src="https://img.shields.io/github/commits-since/CICDToolbox/action-lint/latest.svg?color=blue&style=for-the-badge" alt="Commits since release">
-    </a>
-    <br />
     <a href="https://github.com/CICDToolbox/action-lint/blob/master/.github/CODE_OF_CONDUCT.md">
         <img src="https://img.shields.io/badge/Code%20of%20Conduct-blue?style=for-the-badge" />
     </a>
@@ -122,3 +115,5 @@ GitHub action files are identified using the following code:
 ```
 
 > There is not magic type for GitHub action files so file -b is of not use for identifying the files.
+
+<p align="right"><a href="https://wolfsoftware.com/"><img src="https://img.shields.io/badge/Created%20by%20Wolf%20Software-blue?style=for-the-badge" /></a></p>
