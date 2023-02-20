@@ -3,8 +3,8 @@
         <img src="https://cdn.wolfsoftware.com/assets/images/github/organisations/cicdtoolbox/black-and-white-circle-256.png" alt="CICDToolbox logo" />
     </a>
     <br />
-    <a href="https://github.com/CICDToolbox/action-lint/actions/workflows/cicd-pipeline-local.yml">
-        <img src="https://img.shields.io/github/actions/workflow/status/CICDToolbox/action-lint/cicd-pipeline-local.yml?branch=master&label=local%20pipeline&style=for-the-badge" alt="Github Build Status" /> <img
+    <a href="https://github.com/cicdtoolbox/action-lint/actions/workflows/cicd-pipeline.yml">
+        <img src="https://img.shields.io/github/actions/workflow/status/cicdtoolbox/action-lint/cicd-pipeline.yml?branch=master&label=local%20pipeline&style=for-the-badge" alt="Github Build Status" /> <img
     </a>
     <a href="https://github.com/CICDToolbox/action-lint/releases/latest">
         <img src="https://img.shields.io/github/v/release/CICDToolbox/action-lint?color=blue&label=Latest%20Release&style=for-the-badge" alt="Release">
@@ -13,16 +13,16 @@
         <img src="https://img.shields.io/github/commits-since/CICDToolbox/action-lint/latest.svg?color=blue&style=for-the-badge" alt="Commits since release">
     </a>
     <br />
-    <a href="https://github.com/CICDToolbox/action-lint/blob/master/.github/CODE_OF_CONDUCT.md">
+    <a href="https://github.com/cicdtoolbox/action-lint/blob/master/.github/CODE_OF_CONDUCT.md">
         <img src="https://img.shields.io/badge/Code%20of%20Conduct-blue?style=for-the-badge" />
     </a>
-    <a href="https://github.com/CICDToolbox/action-lint/blob/master/.github/CONTRIBUTING.md">
+    <a href="https://github.com/cicdtoolbox/action-lint/blob/master/.github/CONTRIBUTING.md">
         <img src="https://img.shields.io/badge/Contributing-blue?style=for-the-badge" />
     </a>
-    <a href="https://github.com/CICDToolbox/action-lint/blob/master/.github/SECURITY.md">
+    <a href="https://github.com/cicdtoolbox/action-lint/blob/master/.github/SECURITY.md">
         <img src="https://img.shields.io/badge/Report%20Security%20Concern-blue?style=for-the-badge" />
     </a>
-    <a href="https://github.com/CICDToolbox/action-lint/issues">
+    <a href="https://github.com/cicdtoolbox/action-lint/issues">
         <img src="https://img.shields.io/badge/Get%20Support-blue?style=for-the-badge" />
     </a>
 </p>
