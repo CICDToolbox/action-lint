@@ -25,6 +25,7 @@ jobs:
       with:
         language: "go"
         highest-only: true
+        remove-patch-version: true
 
   actionlint:
     name: Action Lint
@@ -50,6 +51,7 @@ jobs:
       with:
         language: "ruby"
         highest-only: true
+        remove-patch-version: true
 
   awesomebot:
     name: Awesomebot
@@ -79,6 +81,7 @@ jobs:
       with:
         language: "node"
         highest-only: true
+        remove-patch-version: true
 
   markdown-lint:
     name: Markdown Lint
@@ -106,6 +109,7 @@ jobs:
       with:
         language: "python"
         highest-only: true
+        remove-patch-version: true
 
   yaml-lint:
     name: YAML Lint

@@ -23,12 +23,32 @@ env:
 permissions: read-all
 
 jobs:
-  build-testing:
-    name: Build test of Action Lint
+  build-testing-setup:
+    name: Build testing setup
     runs-on: ubuntu-latest
+    outputs:
+      version-matrix: ${{ steps.get-versions.outputs.latest-versions }}
     steps:
       - name: Checkout the repository
         uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c  # 3.3.0
+      - name: Get versions
+        uses: ./
+        id: get-versions
+        with:
+          language: go
+
+  build-testing:
+    name: Build Testing
+    needs: build-testing-setup
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version-matrix: ${{fromJson(needs.test-output-method-setup-eol.outputs.version-matrix)}}
+    steps:
+      - name: Setup Go ${{ matrix.version-matrix }}
+        uses: actions/setup-go@6edd4406fa81c3da01a34fa6f6343087c207a568  # 3.5.0
+        with:
+          go-version: ${{ matrix.version-matrix }}
       - name: Run Action Lint
         run: ./pipeline.sh
 
