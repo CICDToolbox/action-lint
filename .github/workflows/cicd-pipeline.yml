@@ -29,8 +29,6 @@ jobs:
     outputs:
       version-matrix: ${{ steps.get-versions.outputs.latest-versions }}
     steps:
-      - name: Checkout the repository
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c  # 3.3.0
       - name: Get versions
         uses: ActionsToolbox/get-language-versions-action@295ca9f60e37bb4fc6e26bb7c16d3ff7d805f72d  # 0.1.1
         id: get-versions
@@ -43,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version-matrix: ${{fromJson(needs.test-output-method-setup-eol.outputs.version-matrix)}}
+        version-matrix: ${{fromJson(needs.build-testing-setup.outputs.version-matrix)}}
     steps:
       - name: Setup Go ${{ matrix.version-matrix }}
         uses: actions/setup-go@6edd4406fa81c3da01a34fa6f6343087c207a568  # 3.5.0
