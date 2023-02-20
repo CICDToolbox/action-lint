@@ -1,0 +1,70 @@
+name: CICD Pipeline
+
+#
+# This is a repository specific custom workflow - only the template is auto-generated
+#
+
+#
+# Start of Template (part 1)
+#
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - '**'
+  workflow_dispatch:
+
+env:
+    SLACK_NOTIFY: true
+
+# Declare default permissions as read only.
+permissions: read-all
+
+jobs:
+  build-testing:
+    name: Build test of Action Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c  # 3.3.0
+      - name: Run Action Lint
+        run: ./pipeline.sh
+
+#
+# End of Template (part 1)
+#
+  shellcheck:
+    name: ShellCheck
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+      - name: Run Shellcheck
+        run: bash <(curl -s https://raw.githubusercontent.com/CICDToolbox/shellcheck/master/pipeline.sh)
+
+
+#
+# Start of Template (part 2)
+#
+
+  slack-workflow-status:
+    if: always()
+    name: Slack Post Workflow Notification
+    needs:
+      - build-testing
+      - shellcheck
+    runs-on: ubuntu-latest
+    steps:
+      - name: Slack Workflow Notifications
+        if: ${{ env.SLACK_NOTIFY == 'true' && github.event_name == 'push' }}
+        uses: Gamesight/slack-workflow-status@26a36836c887f260477432e4314ec3490a84f309 # v1.2.0
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          include_jobs: on-failure
+          include_commit_message: true
+#
+# End of Template (part 2)
+#

@@ -3,11 +3,14 @@
         <img src="https://cdn.wolfsoftware.com/assets/images/github/organisations/cicdtoolbox/black-and-white-circle-256.png" alt="CICDToolbox logo" />
     </a>
     <br />
-    <a href="https://github.com/CICDToolbox/action-lint/actions/workflows/cicd-pipeline-shared.yml">
-        <img src="https://img.shields.io/github/workflow/status/CICDToolbox/action-lint/CICD%20Pipeline%20(Shared)/master?style=for-the-badge&label=shared%20pipeline" alt="Github Build Status">
+    <a href="https://github.com/CICDToolbox/action-lint/actions/workflows/cicd-pipeline-local.yml">
+        <img src="https://img.shields.io/github/actions/workflow/status/CICDToolbox/action-lint/cicd-pipeline-local.yml?branch=master&label=local%20pipeline&style=for-the-badge" alt="Github Build Status" /> <img
     </a>
-    <a href="https://github.com/CICDToolbox/action-lint/actions/workflows/cicd-pipeline-custom.yml">
-        <img src="https://img.shields.io/github/workflow/status/CICDToolbox/action-lint/CICD%20Pipeline%20(Custom)/master?style=for-the-badge&label=custom%20pipeline" alt="Github Build Status">
+    <a href="https://github.com/CICDToolbox/action-lint/releases/latest">
+        <img src="https://img.shields.io/github/v/release/CICDToolbox/action-lint?color=blue&label=Latest%20Release&style=for-the-badge" alt="Release">
+    </a>
+    <a href="https://github.com/CICDToolbox/action-lint/releases/latest">
+        <img src="https://img.shields.io/github/commits-since/CICDToolbox/action-lint/latest.svg?color=blue&style=for-the-badge" alt="Commits since release">
     </a>
     <br />
     <a href="https://github.com/CICDToolbox/action-lint/blob/master/.github/CODE_OF_CONDUCT.md">

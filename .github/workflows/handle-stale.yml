@@ -1,19 +1,26 @@
 name: Stale issue/pr handler
+
 on:
   workflow_dispatch:
   schedule:
-    - cron: '3 4 * * *'
+    - cron: '0 3 * * *'
 
-permissions:
-  issues: write
-  pull-requests: write
+env:
+  SLACK_NOTIFY: false
+
+# Declare default permissions as read only.
+permissions: read-all
 
 jobs:
   handle-stale-entries:
     name: Handle stale Issues & PRs
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
     steps:
-      - uses: actions/stale@v7
+      - name: Handle state Issues & PRs
+        uses: actions/stale@6f05e4244c9a0b2ed3401882b05d701dd0a7289b # v7.0.0
         id: stale
         with:
           stale-issue-message: 'This issue is stale because it has been open 30 days with no activity. Remove stale label or comment or this will be closed in 5 days.'
@@ -30,3 +37,19 @@ jobs:
           stale-pr-label: 'state: stale'
           close-pr-label: 'resolution: closed'
           exempt-pr-labels: 'state: blocked,state: keep'
+
+  slack-workflow-status:
+    if: always()
+    name: Slack Post Workflow Notification
+    needs:
+      - handle-stale-entries
+    runs-on: ubuntu-latest
+    steps:
+      - name: Slack Workflow Notifications
+        if: ${{ env.SLACK_NOTIFY == 'true' && github.event_name == 'push' }}
+        uses: Gamesight/slack-workflow-status@26a36836c887f260477432e4314ec3490a84f309 # v1.2.0
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          include_jobs: on-failure
+          include_commit_message: true
