@@ -32,7 +32,7 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c  # 3.3.0
       - name: Get versions
-        uses: ./
+        uses: ActionsToolbox/get-language-versions-action@295ca9f60e37bb4fc6e26bb7c16d3ff7d805f72d  # 0.1.1
         id: get-versions
         with:
           language: go
