@@ -26,18 +26,6 @@ on:
           - deleted
           - disabled_inactivity
           - disabled_manually
-      delete_run_by_conclusion_pattern:
-        description: 'Remove workflow by conclusion: action_required, cancelled, failure, skipped, success'
-        required: true
-        default: "All"
-        type: choice
-        options:
-          - "All"
-          - action_required
-          - cancelled
-          - failure
-          - skipped
-          - success
 
   schedule:
     - cron: '4 5 * * *'
@@ -71,7 +59,6 @@ jobs:
           keep_minimum_runs: ${{ env.MINIMUM_RUNS }}
           delete_workflow_pattern: ${{ github.event.inputs.delete_workflow_pattern }}
           delete_workflow_by_state_pattern: ${{ github.event.inputs.delete_workflow_by_state_pattern }}
-          delete_run_by_conclusion_pattern: ${{ github.event.inputs.delete_run_by_conclusion_pattern }}
 
   slack-workflow-status:
     if: always()
