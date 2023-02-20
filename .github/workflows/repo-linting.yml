@@ -33,9 +33,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c  # 3.3.0
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
       - name: Setup Go ${{ needs.get-go-version.outputs.version }}
-        uses: actions/setup-go@6edd4406fa81c3da01a34fa6f6343087c207a568  # v3.5.0
+        uses: actions/setup-go@6edd4406fa81c3da01a34fa6f6343087c207a568 # v3.5.0
         with:
           go-version: ${{ needs.get-go-version.outputs.version }}
       - name: Run Action Lint
@@ -46,7 +46,7 @@ jobs:
     outputs:
       version: ${{ steps.get-language-versions.outputs.latest-versions }}
     steps:
-    - uses: ActionsToolbox/get-language-versions-action@295ca9f60e37bb4fc6e26bb7c16d3ff7d805f72d  # v0.1.1
+    - uses: ActionsToolbox/get-language-versions-action@295ca9f60e37bb4fc6e26bb7c16d3ff7d805f72d # v0.1.1
       id: get-language-versions
       with:
         language: "ruby"
@@ -59,9 +59,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c  # 3.3.0
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
       - name: Set up Ruby ${{ needs.get-ruby-version.outputs.version }}
-        uses: ruby/setup-ruby@ee26e27437bde475b19a6bf8cb73c9fa658876a2  # 1.134.0
+        uses: ruby/setup-ruby@ee26e27437bde475b19a6bf8cb73c9fa658876a2 # v1.134.0
         with:
           ruby-version: ${{ needs.get-ruby-version.outputs.version }}
       - name: Run Awesomebot
@@ -75,7 +75,7 @@ jobs:
     outputs:
       version: ${{ steps.get-language-versions.outputs.latest-versions }}
     steps:
-    - uses: ActionsToolbox/get-language-versions-action@295ca9f60e37bb4fc6e26bb7c16d3ff7d805f72d  # v0.1.1
+    - uses: ActionsToolbox/get-language-versions-action@295ca9f60e37bb4fc6e26bb7c16d3ff7d805f72d # v0.1.1
       id: get-language-versions
       with:
         language: "node"
@@ -88,9 +88,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c  # 3.3.0
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
       - name: Setup node ${{ needs.get-node-version.outputs.version }}
-        uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c  # v3.6.0
+        uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3.6.0
         with:
           node-version: ${{ needs.get-node-version.outputs.version }}
       - name: Run Markdown Lint
@@ -103,7 +103,7 @@ jobs:
     outputs:
       version: ${{ steps.get-language-versions.outputs.latest-versions }}
     steps:
-    - uses: ActionsToolbox/get-language-versions-action@295ca9f60e37bb4fc6e26bb7c16d3ff7d805f72d  # v0.1.1
+    - uses: ActionsToolbox/get-language-versions-action@295ca9f60e37bb4fc6e26bb7c16d3ff7d805f72d # v0.1.1
       id: get-language-versions
       with:
         language: "python"
@@ -116,9 +116,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c  # 3.3.0
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
       - name: Set up Python ${{ needs.get-python-version.outputs.version }}
-        uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435  # v4.5.0
+        uses: actions/setup-python@d27e3f3d7c64b4bbf8e4abfb9b63b83e846e0435 # v4.5.0
         with:
           python-version: ${{ needs.get-python-version.outputs.version }}
       - name: Run YAML-Lint
@@ -138,7 +138,7 @@ jobs:
     steps:
       - name: Slack Workflow Notifications
         if: ${{ env.SLACK_NOTIFY == 'true' && github.event_name == 'push' }}
-        uses: Gamesight/slack-workflow-status@26a36836c887f260477432e4314ec3490a84f309  # v1.2.0
+        uses: Gamesight/slack-workflow-status@26a36836c887f260477432e4314ec3490a84f309 # v1.2.0
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
