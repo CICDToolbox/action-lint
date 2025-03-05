@@ -40,6 +40,12 @@ INSTALL_COMMAND=('go' 'install' 'github.com/rhysd/actionlint/cmd/actionlint@late
 # The specific command to run when running a test
 TEST_COMMAND=('actionlint')
 
+# The specific command to check has been installed - should be first part of the test_command by default
+BASE_COMMAND="${TEST_COMMAND[0]}"
+
+# Version Banner - What to show on the version banned
+BANNER_NAME="${BASE_COMMAND}"
+
 # Version Banner - What to show on the version banned
 BANNER_NAME="${TEST_COMMAND[*]}"
 
@@ -249,7 +255,7 @@ function install_prerequisites()
             success "${INSTALL_COMMAND[*]}"
         fi
     else
-        if ! "${TEST_COMMAND[@]}" --help &> /dev/null; then
+        if ! command -v "${BASE_COMMAND}" > /dev/null; then
             # shellcheck disable=SC2310
             if ! errors=$(run_command "${INSTALL_COMMAND[@]}"); then
                 fail "${INSTALL_COMMAND[*]}" "${errors}" true
@@ -258,7 +264,7 @@ function install_prerequisites()
                 success "${INSTALL_COMMAND[*]}"
             fi
         else
-            success "${TEST_COMMAND[*]} is already installed"
+            success "${BASE_COMMAND} is already installed"
         fi
     fi
 
